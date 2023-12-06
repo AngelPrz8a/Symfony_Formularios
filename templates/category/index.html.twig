@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategoryController!{% endblock %}
+
+{% block body %}
+
+    <div class="d-flex align-items-center justify-content-between">
+        <h1>
+            Categories ! ✅
+        </h1>
+
+        <a class="btn btn-dark btn-sm" href="{{ path("category_create") }}">Crear Categoria</a>
+    </div>
+
+    <table class="table table-striped">
+        <tbody>
+        {% for category in categories %}
+        <tr>
+            <td>
+                {{ category.name }}
+            </td>
+            <td>
+                <a href="{{ path("category_edit", {id:category.id}) }}">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
